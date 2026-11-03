@@ -1,0 +1,19 @@
+meta {
+  name: Telepulesek
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/cities
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+assert {
+  res.status: eq 200
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Torolt telepules
+  type: http
+  seq: 16
+}
+
+delete {
+  url: {{baseUrl}}/cities/{{cityId}}
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 404
+}

@@ -1,0 +1,35 @@
+meta {
+  name: Uj telepules
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/cities
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Teszt telepules",
+    "zip_code": "9999",
+    "county_id": {{countyId}}
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:post-response {
+  bru.setVar("cityId", res.body.city.id);
+}

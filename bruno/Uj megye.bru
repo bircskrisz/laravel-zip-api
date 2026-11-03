@@ -1,0 +1,33 @@
+meta {
+  name: Uj megye
+  type: http
+  seq: 10
+}
+
+post {
+  url: {{baseUrl}}/counties
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Teszt megye"
+  }
+}
+
+assert {
+  res.status: eq 201
+}
+
+script:post-response {
+  bru.setVar("countyId", res.body.county.id);
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Szures es kereses
+  type: http
+  seq: 8
+}
+
+get {
+  url: {{baseUrl}}/cities?county_id=1&search=1
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+assert {
+  res.status: eq 200
+}

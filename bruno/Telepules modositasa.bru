@@ -1,0 +1,31 @@
+meta {
+  name: Telepules modositasa
+  type: http
+  seq: 14
+}
+
+put {
+  url: {{baseUrl}}/cities/{{cityId}}
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Modositott telepules",
+    "zip_code": "9998",
+    "county_id": {{countyId}}
+  }
+}
+
+assert {
+  res.status: eq 200
+}

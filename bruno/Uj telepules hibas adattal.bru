@@ -1,0 +1,31 @@
+meta {
+  name: Uj telepules hibas adattal
+  type: http
+  seq: 12
+}
+
+post {
+  url: {{baseUrl}}/cities
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Teszt",
+    "zip_code": "12",
+    "county_id": 999999
+  }
+}
+
+assert {
+  res.status: eq 422
+}

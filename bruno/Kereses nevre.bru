@@ -1,0 +1,19 @@
+meta {
+  name: Kereses nevre
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/cities?search=Debrecen
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+assert {
+  res.status: eq 200
+}

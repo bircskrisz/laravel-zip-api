@@ -1,0 +1,19 @@
+meta {
+  name: Kereses iranyitoszamra
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/cities?search=4024
+  body: none
+  auth: none
+}
+
+headers {
+  Accept: application/json
+}
+
+assert {
+  res.status: eq 200
+}

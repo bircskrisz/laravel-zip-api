@@ -1,0 +1,29 @@
+meta {
+  name: Megye modositasa
+  type: http
+  seq: 11
+}
+
+put {
+  url: {{baseUrl}}/counties/{{countyId}}
+  body: json
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "name": "Modositott megye"
+  }
+}
+
+assert {
+  res.status: eq 200
+}

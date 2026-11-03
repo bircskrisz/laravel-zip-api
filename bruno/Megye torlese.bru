@@ -1,0 +1,23 @@
+meta {
+  name: Megye torlese
+  type: http
+  seq: 17
+}
+
+delete {
+  url: {{baseUrl}}/counties/{{countyId}}
+  body: none
+  auth: bearer
+}
+
+headers {
+  Accept: application/json
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+assert {
+  res.status: eq 200
+}
